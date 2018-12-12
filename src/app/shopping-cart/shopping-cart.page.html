@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ 'Shopping cart' | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail slot="start" (click)="addProduct()" padding>
+        <ion-img src="assets/images/plus-sign-in-circle.svg"></ion-img>
+      </ion-thumbnail>
+      <ion-label text-wrap>
+        <h2>{{ 'Add product...' | translate }}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngFor="let item of items">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="item.src"></ion-img>
+      </ion-thumbnail>
+      <ion-label text-wrap>
+        <h2>{{ item.title }} </h2>
+        <p>{{ item.price }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
