@@ -21,4 +21,8 @@ export class ShoppingCartPage {
     deleteItem(idx: number) {
         this.cart.items.splice(idx, 1);
     }
+
+    checkout() {
+        this.navCtrl.navigateForward('checkout');
+    }
 }

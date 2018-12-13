@@ -4,5 +4,9 @@
     "Add product...": "Dodaj produkt...",
     "Remove all products": "Usuń wszystkie produkty",
     "Scan barcode": "Skanuj kod produktu",
-    "Remove product": "Usuń produkt"
+    "Remove product": "Usuń produkt",
+    "Checkout...": "Przejdź do podsumowania...",
+    "Checkout": "Podsumowanie koszyka",
+    "Pay": "Zapłać",
+    "Total": "Suma"
 }

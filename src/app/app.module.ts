@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -12,6 +12,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { registerLocaleData } from '@angular/common';
+import localePl from '@angular/common/locales/pl';
+
+registerLocaleData(localePl, 'pl');
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,12 +31,13 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
         useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: LOCALE_ID, useValue: 'pl' }
   ],
   bootstrap: [AppComponent]
 })

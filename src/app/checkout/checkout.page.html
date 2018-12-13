@@ -4,11 +4,12 @@
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title>
-            {{ 'Shopping cart' | translate }}
+            {{ 'Checkout' | translate }}
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
+<!--
 <ion-content>
     <ion-list>
         <ion-item (click)="addProduct()">
@@ -25,7 +26,7 @@
             </ion-thumbnail>
             <ion-label text-wrap>
                 <h2>{{ item.title }} </h2>
-                <p>{{ item.price | currency : 'PLN' }}</p>
+                <p>{{ item.price }}</p>
             </ion-label>
             <ion-button slot="end" color="danger" fill="clear" (click)="deleteItem(i)">
                 <ion-icon is-active="false" name="trash" slot="icon-only"></ion-icon>
@@ -33,11 +34,22 @@
         </ion-item>
     </ion-list>
 </ion-content>
+-->
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label text-wrap>
+                {{ 'Total' | translate }}: {{ cart.total | currency : 'PLN' }}
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>
 
 <ion-footer>
     <ion-toolbar>
         <ion-buttons slot="end">
-            <ion-button (click)="checkout()" [disabled]="cart.isEmpty">{{ 'Checkout...' | translate }}</ion-button>
+            <ion-button (click)="pay()">{{ 'Pay' | translate }}</ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-footer>

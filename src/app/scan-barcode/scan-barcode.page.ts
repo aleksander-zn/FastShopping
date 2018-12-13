@@ -20,6 +20,6 @@ export class ScanBarcodePage implements OnInit {
         setTimeout(() => {
             this.cart.items.push(this.generator.generateRandomProduct());
             this.navCtrl.goBack();
-        }, 5000);
+        }, 3000);
     }
 }

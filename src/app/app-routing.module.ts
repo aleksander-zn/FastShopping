@@ -16,7 +16,8 @@ const routes: Routes = [
     loadChildren: './list/list.module#ListPageModule'
   },
   { path: 'shopping-cart', loadChildren: './shopping-cart/shopping-cart.module#ShoppingCartPageModule' },
-  { path: 'scan-barcode', loadChildren: './scan-barcode/scan-barcode.module#ScanBarcodePageModule' }
+  { path: 'scan-barcode', loadChildren: './scan-barcode/scan-barcode.module#ScanBarcodePageModule' },
+  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' }
 ];
 
 @NgModule({
