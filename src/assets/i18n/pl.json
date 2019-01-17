@@ -8,5 +8,17 @@
     "Checkout...": "Przejdź do podsumowania...",
     "Checkout": "Podsumowanie koszyka",
     "Pay": "Zapłać",
-    "Total": "Suma"
+    "Total": "Suma",
+    "Settings": "Ustawienia",
+    "Credit cards": "Karty kredytowe",
+    "Add card...": "Dodaj kartę...",
+    "Add credit card": "Dodaj kartę kredytową",
+    "First name": "Imię",
+    "Last name": "Nazwisko",
+    "Card number": "Numer karty",
+    "Expiration date": "Karta ważna do",
+    "CVV": "Kod CVV",
+    "Save card data": "Zapisz dane karty",
+    "Choose credit card": "Wybierz kartę kredytową",
+    "Select": "Wybierz"
 }

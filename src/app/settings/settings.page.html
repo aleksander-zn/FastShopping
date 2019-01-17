@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+          {{ 'Settings' | translate }}
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        {{ 'Credit cards' | translate }}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="defaultCreditCard">
+        <ion-item *ngFor="let card of cardDataService.cardData; let i = index">
+          <ion-label text-wrap>
+            <h2>{{ card.number }}</h2>
+            <p *ngFor="let detail of cardDataService.visibleCardDetails">{{ card[detail] }}</p>
+          </ion-label>
+          <ion-radio slot="start" [value]="i"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <ion-item (click)="addCard()" detail>
+        <ion-label>
+          {{ 'Add card...' | translate }}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

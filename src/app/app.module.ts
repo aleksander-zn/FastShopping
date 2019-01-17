@@ -14,12 +14,15 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { registerLocaleData } from '@angular/common';
 import localePl from '@angular/common/locales/pl';
+import { CreditCardChooserComponent } from './components/credit-card-chooser/credit-card-chooser/credit-card-chooser.component';
 
 registerLocaleData(localePl, 'pl');
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, CreditCardChooserComponent],
+  entryComponents: [
+    CreditCardChooserComponent,
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

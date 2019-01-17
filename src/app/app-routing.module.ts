@@ -17,7 +17,9 @@ const routes: Routes = [
   },
   { path: 'shopping-cart', loadChildren: './shopping-cart/shopping-cart.module#ShoppingCartPageModule' },
   { path: 'scan-barcode', loadChildren: './scan-barcode/scan-barcode.module#ScanBarcodePageModule' },
-  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' }
+  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' },
+  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
+  { path: 'add-credit-card', loadChildren: './add-credit-card/add-credit-card.module#AddCreditCardPageModule' }
 ];
 
 @NgModule({

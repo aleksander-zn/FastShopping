@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, NavController, ToastController } from '@ionic/angular';
+import { LoadingController, ModalController, NavController, ToastController } from '@ionic/angular';
+import { CreditCardChooserComponent } from '../components/credit-card-chooser/credit-card-chooser/credit-card-chooser.component';
 import { ShoppingCartService } from '../services/shopping-cart/shopping-cart.service';
 
 @Component({
@@ -13,32 +14,42 @@ export class CheckoutPage implements OnInit {
         public cart: ShoppingCartService,
         private loadingCtrl: LoadingController,
         private navCtrl: NavController,
-        private toastCtrl: ToastController
+        private toastCtrl: ToastController,
+        private modalCtrl: ModalController
     ) { }
 
     ngOnInit() { }
 
     pay() {
-        let loading = this.loadingCtrl.create({
-            message: 'Pobieranie opłaty z karty...',
-            duration: 3000
+        const modal = this.modalCtrl.create({
+            component: CreditCardChooserComponent
         });
 
-        loading.then((val) => {
+        modal.then(val => {
             val.present();
             val.onDidDismiss().then(() => {
-                this.navCtrl.goBack();
-                let toast = this.toastCtrl.create({
-                    message: 'Opłata z karty została pobrana.',
-                    duration: 3000,
-                    position: 'bottom',
-                    showCloseButton: true,
-                    closeButtonText: 'OK'
+                let loading = this.loadingCtrl.create({
+                    message: 'Pobieranie opłaty z karty...',
+                    duration: 3000
                 });
-                toast.then((val) => {
+        
+                loading.then(val => {
                     val.present();
-                })
-                this.cart.wipe();
+                    val.onDidDismiss().then(() => {
+                        this.navCtrl.goBack();
+                        let toast = this.toastCtrl.create({
+                            message: 'Opłata z karty została pobrana.',
+                            duration: 3000,
+                            position: 'bottom',
+                            showCloseButton: true,
+                            closeButtonText: 'OK'
+                        });
+                        toast.then(val => {
+                            val.present();
+                        })
+                        this.cart.wipe();
+                    });
+                });
             });
         });
     }

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="end">
+          <ion-button (click)="dismiss()">
+            <ion-text color="primary">{{ 'Select' | translate }}</ion-text>
+          </ion-button>
+      </ion-buttons>
+      <ion-title>
+          {{ 'Choose credit card' | translate }}
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content>
+  <ion-list>
+    <ion-radio-group>
+      <ion-item *ngFor="let card of cardDataService.cardData; let i = index">
+        <ion-label text-wrap>
+          <h2>{{ card.number }}</h2>
+          <p *ngFor="let detail of cardDataService.visibleCardDetails">{{ card[detail] }}</p>
+        </ion-label>
+        <ion-radio slot="start" [checked]="i === cardDataService.defaultCreditCardIdx"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+          {{ 'Add credit card' | translate }}
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>{{ 'First name' | translate }}</ion-label>
+      <ion-input [(ngModel)]="cardData.fname" name="fname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'Last name' | translate }}</ion-label>
+      <ion-input [(ngModel)]="cardData.lname" name="lname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'Card number' | translate }}</ion-label>
+      <ion-input [(ngModel)]="cardData.number" name="card-number" type="number" minlength="16" maxlength="16"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'Expiration date' | translate }}</ion-label>
+      <ion-input [(ngModel)]="cardData.expirationDate" name="expiration-date" placeholder="12/2034"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'CVV' | translate }}</ion-label>
+      <ion-input [(ngModel)]="cardData.cvv" name="cvv" placeholder="123"></ion-input>
+    </ion-item>
+    <ion-item (click)="saveCardData()" detail>
+      <ion-label>{{ 'Save card data' | translate }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

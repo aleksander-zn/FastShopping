@@ -55,6 +55,14 @@ export class AppComponent {
           icon: 'cart'
         });
       });
+
+      this.translate.get('Settings').subscribe(translation => {
+        this.appPages.push({
+          title: translation,
+          url: '/settings',
+          icon: 'settings'
+        });
+      });
     });
   }
 }
